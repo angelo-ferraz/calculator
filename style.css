@@ -1,0 +1,29 @@
+* {
+    font-size: 50px;
+    line-height: 100%;
+}
+
+#calculatorframe {
+    width: 200px;
+    height: auto;
+    border-radius: 3%;
+    background: rgb(68, 67, 67);
+    padding: 5px;
+    border: 1px solid black;
+}
+#screen{z-index: 2; margin-bottom: 12px; text-align: right; background-color: rgb(20, 111, 196); border: 1px solid black; opacity: 70%; padding-right: 10px;}
+#buttonarea {
+    padding: 5px;
+    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+}
+.operator {font-size: 80%; background-color: rgb(226, 186, 8);}
+.clear {font-size: 50%; line-height: 180% ; background-color: rgb(206, 142, 5);}
