@@ -1,29 +1,70 @@
 * {
-    font-size: 50px;
-    line-height: 100%;
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+  
+body {
+padding: 0;
+margin: 0;
 }
 
-#calculatorframe {
-    width: 200px;
-    height: auto;
-    border-radius: 3%;
-    background: rgb(68, 67, 67);
-    padding: 5px;
-    border: 1px solid black;
+.calculatorframe {
+display: grid;
+justify-content: center;
+align-content: center;
+min-height: 100vh;
+grid-template-columns: repeat(4, 100px);
+grid-template-rows: minmax(100px, auto) repeat(5, 100px);
 }
-#screen{z-index: 2; margin-bottom: 12px; text-align: right; background-color: rgb(20, 111, 196); border: 1px solid black; opacity: 70%; padding-right: 10px;}
-#buttonarea {
-    padding: 5px;
-    gap: 5px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+.calculatorframe button {
+cursor: pointer;
+font-size: 2rem;
+border: 1px solid white;
+outline: none;
+border: 1px black solid;
+box-shadow: 0px 2px 5px 0px black;
 }
-.button {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: white;
-    border: 1px solid black;
-    text-align: center;
-    border-radius: 10px;
+
+.calculatorframe button:hover {background-color: rgba(163, 161, 161, 0.9);}
+.calculatorframe button:active {opacity: 60%; border: 2px solid black;}
+
+
+.two {
+grid-column: span 2;
 }
-.operator {font-size: 80%; background-color: rgb(226, 186, 8);}
-.clear {font-size: 50%; line-height: 180% ; background-color: rgb(206, 142, 5);}
+
+.screen {
+grid-column: 1 / -1;
+background-color: rgba(20, 20, 20, 0.9);
+display: flex;
+align-items: flex-end;
+justify-content: space-around;
+flex-direction: column;
+padding: 10px;
+word-wrap: break-word;
+word-break: break-all;
+filter: blur(.2px);
+gap: 5px;
+}
+
+.screen .previous {
+color: rgba(255, 255, 255, .75);
+font-size: 1rem;
+}
+
+.screen .current {
+color: white;
+font-size: 2.5rem;
+}
+
+.number .decimal {background-color: rgba(255, 255, 255, .6);}
+.operator {background-color: rgb(248, 210, 210);}
+.equals {background-color: rgb(248, 210, 210);}
+.janitor {background-color: rgb(248, 210, 210);}
+
+[data-state ="selected"]{background: rgb(182, 119, 119);}
+.current {position: absolute; bottom: 10px; }
+.previous {position: absolute; top: 20px}
+

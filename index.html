@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>See you later, Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="calculatorframe">
-        <div id="screen">0</div>
-        <div id="buttonarea">
-            <kbd class="number">7</kbd>
-            <kbd class="number">8</kbd>
-            <kbd class="number">9</kbd>
-            <kbd class="number">+</kbd>
-            <kbd class="number">4</kbd>
-            <kbd class="number">5</kbd>
-            <kbd class="number">6</kbd>
-            <kbd class="number">-</kbd>
-            <kbd class="number">1</kbd>
-            <kbd class="number">2</kbd>
-            <kbd class="number">3</kbd>
-            <kbd class="number">*</kbd>
-            <kbd class="number">C</kbd>
-            <kbd class="number">0</kbd>
-            <kbd class="number">/</kbd>
-        </div>
+  <div class="calculatorframe">
+    <div class="screen">
+      <div data-previous class="previous"></div>
+      <div data-current class="current">0</div>
     </div>
+    <button accesskey="backspace" class="operator">AC</button>
+    <button accesskey="delete" class="operator">DEL</button>
+    <button accesskey="insert" class="operator">ANS</button>
+    <button accesskey="/" class="operator">÷</button>
+    <button accesskey="7" class="number">7</button>
+    <button accesskey="8" class="number">8</button>
+    <button accesskey="9" class="number">9</button>
+    <button accesskey="*" class="operator">*</button>
+    <button accesskey="4" class="number">4</button>
+    <button accesskey="5" class="number">5</button>
+    <button accesskey="6" class="number">6</button>
+    <button accesskey="+" class="operator">+</button>
+    <button accesskey="1" class="number">1</button>
+    <button accesskey="2" class="number">2</button>
+    <button accesskey="3" class="number">3</button>
+    <button accesskey="-" class="operator">-</button>
+    <button accesskey="." class="decimal">.</button>
+    <button accesskey="0" class="number">0</button>
+    <button accesskey="enter" class="equals two">=</button>
+  </div>
 </body>
-</html>
