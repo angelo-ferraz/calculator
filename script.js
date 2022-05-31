@@ -116,14 +116,15 @@ buttons.forEach(button => {
         }
         
         if (button.classList.contains('equals')) {
+            if (previousDisplay.textContent === ''){return}
             secondNumber = parseFloat(current)
             firstNumber = parseFloat(previousDisplay.innerText.slice(0, -2))
 
             if (currentDisplay.textContent === '' || previousDisplay.textContent !== firstNumber + ' ' + operator){
                 previousDisplay.textContent = 'Error'
                 operators.forEach(selected => {selected.dataset.state = ''})
-                return
-            }
+                return}
+
 
             operators.forEach(selected => {selected.dataset.state = ''})
             previousDisplay.textContent = `${previous} ${current} =`

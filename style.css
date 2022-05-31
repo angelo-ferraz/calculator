@@ -66,5 +66,5 @@ font-size: 2.5rem;
 
 [data-state ="selected"]{background: rgb(182, 119, 119);}
 .current {position: absolute; bottom: 10px; }
-.previous {position: absolute; top: 20px}
+.previous {position: absolute; top: 17px}
 
