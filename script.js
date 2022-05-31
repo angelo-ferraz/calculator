@@ -24,10 +24,10 @@ buttons.forEach(button => {
         if (previousDisplay.textContent.includes(undefined)){currentDisplay.textContent = ''}
         if (previousDisplay.textContent.includes(NaN)){currentDisplay.textContent = ''}
 
-
         // Screen Functionality
         if (button.classList.contains('number')) {
             if (calcDone === true){
+                operator = undefined
                 previousDisplay.textContent = ``
                 currentDisplay.textContent = button.textContent}
             else if (current === '0') {
@@ -46,8 +46,12 @@ buttons.forEach(button => {
             else {currentDisplay.textContent = current + '.'}}
 
         if (button.classList.contains('operator')) {
-            if (currentDisplay.textContent === '0'){return}
-            if (previousDisplay.textContent.includes(operator) && calcDone === false){
+            if (previousDisplay.textContent === '' && operator !== undefined){
+                button.dataset.state = ''
+                operator = undefined
+                return}
+            else if (currentDisplay.textContent === '0'){return}
+            else if (previousDisplay.textContent.includes(operator) && calcDone === false){
                 switch  (operator){
                     case '+':
                         operator = button.textContent
@@ -58,6 +62,9 @@ buttons.forEach(button => {
                         else result = add(firstNumber, secondNumber)  
                         previousDisplay.textContent = `${result} ${operator}` 
                         currentDisplay.textContent = ''
+                        operators.forEach(selected => {selected.dataset.state = ''})
+                        button.dataset.state = 'selected'
+                        if (previousDisplay.textContent.includes(NaN)){previousDisplay.textContent = ''}
                         break
                     case '-':
                         operator = button.textContent
@@ -68,6 +75,8 @@ buttons.forEach(button => {
                         else result = subtract(firstNumber, secondNumber)  
                         previousDisplay.textContent = `${result} ${operator}` 
                         currentDisplay.textContent = ''
+                        operators.forEach(selected => {selected.dataset.state = ''})
+                        button.dataset.state = 'selected'
                         break
                     case '*':
                         operator = button.textContent
@@ -78,6 +87,8 @@ buttons.forEach(button => {
                         else result = multiply(firstNumber, secondNumber)  
                         previousDisplay.textContent = `${result} ${operator}` 
                         currentDisplay.textContent = ''
+                        operators.forEach(selected => {selected.dataset.state = ''})
+                        button.dataset.state = 'selected'
                         break
                     case '÷':
                         operator = button.textContent
@@ -88,11 +99,12 @@ buttons.forEach(button => {
                         else result = divide(firstNumber, secondNumber)  
                         previousDisplay.textContent = `${result} ${operator}` 
                         currentDisplay.textContent = ''
+                        operators.forEach(selected => {selected.dataset.state = ''})
+                        button.dataset.state = 'selected'
                         break
                     default:
                         break}
             }
-            
             else {
             calcDone = false
             operator = button.textContent
@@ -100,7 +112,8 @@ buttons.forEach(button => {
             operators.forEach(selected => {selected.dataset.state = ''})
             button.dataset.state = 'selected'
             previousDisplay.textContent = current + ' ' + operator
-            currentDisplay.textContent = ''}}
+            currentDisplay.textContent = ''}
+        }
         
         if (button.classList.contains('equals')) {
             secondNumber = parseFloat(current)
